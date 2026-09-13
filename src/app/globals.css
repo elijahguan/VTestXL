@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #eef1ec;
+  --paper-raised: #ffffff;
+  --ink: #1c2420;
+  --ink-muted: #4b5550;
+  --forest: #1b3a3a;
+  --forest-light: #275050;
+  --gold: #c98a2b;
+  --gold-light: #e3a72e;
+  --brick: #a3452e;
+  --brick-light: #f4e3dd;
+  --sage: #3f6b47;
+  --sage-light: #e2ecdf;
+  --rule: #d7dcd4;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-forest: var(--forest);
+  --color-forest-light: var(--forest-light);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-brick: var(--brick);
+  --color-brick-light: var(--brick-light);
+  --color-sage: var(--sage);
+  --color-sage-light: var(--sage-light);
+  --color-rule: var(--rule);
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-inter);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--gold-light);
+  color: var(--ink);
+}
