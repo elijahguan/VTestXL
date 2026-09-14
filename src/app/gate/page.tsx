@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 export default function GatePage() {
-  const router = useRouter();
   const [passcode, setPasscode] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -22,15 +20,14 @@ export default function GatePage() {
       });
 
       if (res.ok) {
-        router.push("/demo");
-        router.refresh();
+        window.location.href = "/demo";
       } else {
         const data = await res.json();
         setError(data.error || "Incorrect passcode.");
+        setSubmitting(false);
       }
     } catch {
       setError("Something went wrong. Try again.");
-    } finally {
       setSubmitting(false);
     }
   }

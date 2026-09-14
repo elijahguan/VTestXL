@@ -3,15 +3,30 @@ import Link from "next/link";
 export default function Landing() {
   return (
     <main className="min-h-screen bg-bg">
-      {/* Nav */}
-      <nav className="max-w-5xl mx-auto px-5 sm:px-6 py-6 flex items-center justify-between">
+      {/* Nav with centered tabs */}
+      <nav className="max-w-5xl mx-auto px-5 sm:px-6 py-6 grid grid-cols-2 sm:grid-cols-3 items-center">
         <span className="font-display font-extrabold text-xl text-ink">TestXL</span>
-        <Link
-          href="/demo"
-          className="text-sm font-semibold text-primary bg-primary/10 rounded-full px-5 py-2 hover:bg-primary/15 transition-colors"
-        >
-          Try the demo →
-        </Link>
+
+        <div className="hidden sm:flex items-center justify-center gap-6 text-sm font-medium text-ink-muted">
+          <a href="#how-it-works" className="hover:text-ink transition-colors">
+            How it works
+          </a>
+          <a href="#why-testxl" className="hover:text-ink transition-colors">
+            Why TestXL
+          </a>
+          <a href="#faq" className="hover:text-ink transition-colors">
+            FAQ
+          </a>
+        </div>
+
+        <div className="justify-self-end">
+          <Link
+            href="/demo"
+            className="text-sm font-semibold text-primary bg-primary/10 rounded-full px-5 py-2 hover:bg-primary/15 transition-colors"
+          >
+            Try the demo →
+          </Link>
+        </div>
       </nav>
 
       {/* Hero */}
@@ -36,7 +51,10 @@ export default function Landing() {
       </section>
 
       {/* How it works */}
-      <section className="max-w-4xl mx-auto px-5 sm:px-6 pb-20">
+      <section id="how-it-works" className="max-w-4xl mx-auto px-5 sm:px-6 pb-20 scroll-mt-20">
+        <h2 className="font-display text-2xl font-bold text-ink text-center mb-8">
+          How it works
+        </h2>
         <div className="grid sm:grid-cols-3 gap-5">
           <div className="bg-surface rounded-2xl shadow-sm border border-border p-6">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-display font-bold text-primary mb-4">
@@ -68,6 +86,63 @@ export default function Landing() {
               exactly where to spend your study time.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Why TestXL */}
+      <section id="why-testxl" className="bg-surface border-y border-border scroll-mt-20">
+        <div className="max-w-3xl mx-auto px-5 sm:px-6 py-16">
+          <h2 className="font-display text-2xl font-bold text-ink text-center mb-4">
+            Why TestXL
+          </h2>
+          <p className="text-ink-muted text-center leading-relaxed max-w-xl mx-auto">
+            Most practice tools just replay the same question bank until you&apos;ve
+            memorized the answers — not the concept. TestXL is built around
+            genuine understanding: every question comes with an explanation, every
+            explanation gets tested a different way, and the concepts you actually
+            struggle with get called out instead of buried in a big pile of
+            questions you&apos;ll never see again.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="max-w-2xl mx-auto px-5 sm:px-6 py-16 scroll-mt-20">
+        <h2 className="font-display text-2xl font-bold text-ink text-center mb-8">
+          FAQ
+        </h2>
+        <div className="space-y-3">
+          <details className="bg-surface rounded-2xl shadow-sm border border-border p-5 group">
+            <summary className="font-semibold text-ink cursor-pointer list-none flex items-center justify-between">
+              What kind of questions can I paste in?
+              <span className="text-ink-muted group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p className="text-ink-muted text-sm mt-3 leading-relaxed">
+              Your own notes, practice questions, or study material for any exam
+              or certification — the more context you include (like answer
+              choices or explanations), the better the results.
+            </p>
+          </details>
+          <details className="bg-surface rounded-2xl shadow-sm border border-border p-5 group">
+            <summary className="font-semibold text-ink cursor-pointer list-none flex items-center justify-between">
+              Is this free to use?
+              <span className="text-ink-muted group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p className="text-ink-muted text-sm mt-3 leading-relaxed">
+              TestXL is currently in a private beta with a small group of
+              testers. Pricing hasn&apos;t been finalized yet.
+            </p>
+          </details>
+          <details className="bg-surface rounded-2xl shadow-sm border border-border p-5 group">
+            <summary className="font-semibold text-ink cursor-pointer list-none flex items-center justify-between">
+              How do I get access?
+              <span className="text-ink-muted group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p className="text-ink-muted text-sm mt-3 leading-relaxed">
+              Access is currently invite-only during the beta. If you were given
+              a passcode, click &quot;Try the demo&quot; above to get started.
+            </p>
+          </details>
         </div>
       </section>
     </main>
