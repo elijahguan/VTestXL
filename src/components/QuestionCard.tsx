@@ -43,18 +43,14 @@ export default function QuestionCard({ question }: { question: Question }) {
   const isCorrect = submitted && selected === question.variant_correct_index;
 
   return (
-    <div
-      className={`border-l-4 pl-5 py-4 ${
-        question.flagged ? "border-brick" : "border-rule"
-      }`}
-    >
+    <div className="bg-surface rounded-2xl shadow-sm border border-border p-5">
       {question.flagged && (
-        <p className="text-brick text-sm font-medium mb-2">
-          Watch out — {question.flag_reason}
-        </p>
+        <div className="bg-accent-light text-accent text-sm font-medium rounded-xl px-4 py-2.5 mb-3">
+          ⚡ Watch out — {question.flag_reason}
+        </div>
       )}
 
-      <p className="font-medium text-ink mb-2">{question.original_question}</p>
+      <p className="font-semibold text-ink mb-2">{question.original_question}</p>
 
       {question.original_answer && (
         <p className="text-ink-muted text-sm mb-2">
@@ -70,32 +66,32 @@ export default function QuestionCard({ question }: { question: Question }) {
         {!showVariant ? (
           <button
             onClick={() => setShowVariant(true)}
-            className="text-sm font-medium text-forest border border-forest/30 rounded-md px-4 py-2 hover:bg-forest hover:text-paper-raised transition-colors"
+            className="text-sm font-semibold text-primary bg-primary/10 rounded-full px-5 py-2.5 hover:bg-primary/15 transition-colors"
           >
             Try a similar question →
           </button>
         ) : (
-          <div className="bg-paper-raised rounded-md p-5 mt-2">
-            <p className="font-medium text-ink mb-3">{question.variant_question}</p>
+          <div className="bg-bg rounded-xl p-4 sm:p-5 mt-2">
+            <p className="font-semibold text-ink mb-3">{question.variant_question}</p>
             <div className="space-y-2">
               {question.variant_choices.map((choice, i) => {
                 const isSelected = selected === i;
                 const isCorrectChoice = i === question.variant_correct_index;
-                let stateClasses = "border-rule";
+                let stateClasses = "border-border bg-surface";
                 if (submitted && isCorrectChoice) {
-                  stateClasses = "border-sage bg-sage-light";
+                  stateClasses = "border-success bg-success-light";
                 } else if (submitted && isSelected && !isCorrectChoice) {
-                  stateClasses = "border-brick bg-brick-light";
+                  stateClasses = "border-danger bg-danger-light";
                 } else if (isSelected) {
-                  stateClasses = "border-forest";
+                  stateClasses = "border-primary bg-primary/5";
                 }
                 return (
                   <button
                     key={i}
                     disabled={submitted}
                     onClick={() => setSelected(i)}
-                    className={`w-full text-left rounded-md border px-4 py-2.5 text-sm transition-colors ${stateClasses} ${
-                      !submitted ? "hover:border-forest" : "cursor-default"
+                    className={`w-full text-left rounded-xl border-2 px-4 py-3 text-sm transition-colors ${stateClasses} ${
+                      !submitted ? "hover:border-primary/50" : "cursor-default"
                     }`}
                   >
                     {choice}
@@ -108,14 +104,14 @@ export default function QuestionCard({ question }: { question: Question }) {
               <button
                 onClick={() => setSubmitted(true)}
                 disabled={selected === null}
-                className="mt-4 text-sm font-medium bg-forest text-paper-raised rounded-md px-4 py-2 disabled:opacity-40"
+                className="mt-4 text-sm font-semibold bg-primary text-white rounded-full px-6 py-2.5 disabled:opacity-40"
               >
                 Submit answer
               </button>
             ) : (
               <div className="mt-4">
-                <p className={`font-medium ${isCorrect ? "text-sage" : "text-brick"}`}>
-                  {isCorrect ? "Correct!" : "Not quite."}
+                <p className={`font-semibold ${isCorrect ? "text-success" : "text-danger"}`}>
+                  {isCorrect ? "Correct! 🎉" : "Not quite."}
                 </p>
                 <p className="text-ink-muted text-sm mt-1 leading-relaxed">
                   {question.variant_explanation}
@@ -126,20 +122,20 @@ export default function QuestionCard({ question }: { question: Question }) {
         )}
       </div>
 
-      <div className="mt-4 pt-3 border-t border-rule">
+      <div className="mt-4 pt-3 border-t border-border">
         {!feedbackGiven ? (
           <div className="flex items-center gap-3">
             <span className="text-xs text-ink-muted">Was this helpful?</span>
             <button
               onClick={() => sendFeedback("up")}
-              className="text-sm hover:opacity-70"
+              className="text-base hover:scale-110 transition-transform"
               aria-label="Helpful"
             >
               👍
             </button>
             <button
               onClick={() => sendFeedback("down")}
-              className="text-sm hover:opacity-70"
+              className="text-base hover:scale-110 transition-transform"
               aria-label="Not helpful"
             >
               👎
@@ -148,7 +144,7 @@ export default function QuestionCard({ question }: { question: Question }) {
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               placeholder="Optional comment..."
-              className="flex-1 text-xs bg-transparent border-b border-rule focus:border-forest outline-none py-1"
+              className="flex-1 text-xs bg-transparent border-b border-border focus:border-primary outline-none py-1"
             />
           </div>
         ) : (

@@ -36,12 +36,12 @@ export default function GatePage() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-paper px-6">
-      <div className="w-full max-w-sm">
-        <h1 className="font-display text-3xl font-semibold text-forest mb-2">
+    <main className="min-h-screen flex items-center justify-center bg-bg px-6">
+      <div className="w-full max-w-sm bg-surface rounded-2xl shadow-sm border border-border p-6">
+        <h1 className="font-display text-2xl font-extrabold text-ink mb-2">
           TestXL
         </h1>
-        <p className="text-ink-muted mb-6">
+        <p className="text-ink-muted text-sm mb-6">
           This is a private beta. Enter the passcode you were given to continue.
         </p>
         <form onSubmit={handleSubmit} className="space-y-3">
@@ -51,13 +51,13 @@ export default function GatePage() {
             onChange={(e) => setPasscode(e.target.value)}
             placeholder="Passcode"
             autoFocus
-            className="w-full rounded-md border border-rule bg-paper-raised px-4 py-3 text-ink outline-none focus:border-forest focus:ring-2 focus:ring-forest/20"
+            className="w-full rounded-xl border border-border bg-bg px-4 py-3 text-ink outline-none focus:border-primary focus:ring-4 focus:ring-primary/10"
           />
-          {error && <p className="text-brick text-sm">{error}</p>}
+          {error && <p className="text-danger text-sm">{error}</p>}
           <button
             type="submit"
             disabled={submitting || !passcode}
-            className="w-full rounded-md bg-forest px-4 py-3 text-paper-raised font-medium transition-colors hover:bg-forest-light disabled:opacity-50"
+            className="w-full rounded-full bg-primary px-4 py-3 text-white font-semibold transition-colors hover:bg-primary-dark disabled:opacity-50"
           >
             {submitting ? "Checking..." : "Continue"}
           </button>

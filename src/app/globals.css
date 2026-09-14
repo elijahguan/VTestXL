@@ -1,46 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #eef1ec;
-  --paper-raised: #ffffff;
-  --ink: #1c2420;
-  --ink-muted: #4b5550;
-  --forest: #1b3a3a;
-  --forest-light: #275050;
-  --gold: #c98a2b;
-  --gold-light: #e3a72e;
-  --brick: #a3452e;
-  --brick-light: #f4e3dd;
-  --sage: #3f6b47;
-  --sage-light: #e2ecdf;
-  --rule: #d7dcd4;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --ink: #0f172a;
+  --ink-muted: #64748b;
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --accent: #ff7a45;
+  --accent-light: #ffe8dc;
+  --success: #16a34a;
+  --success-light: #e8f7ec;
+  --danger: #dc2626;
+  --danger-light: #fdeaea;
+  --border: #e2e8f0;
 }
 
 @theme inline {
-  --color-paper: var(--paper);
-  --color-paper-raised: var(--paper-raised);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
-  --color-forest: var(--forest);
-  --color-forest-light: var(--forest-light);
-  --color-gold: var(--gold);
-  --color-gold-light: var(--gold-light);
-  --color-brick: var(--brick);
-  --color-brick-light: var(--brick-light);
-  --color-sage: var(--sage);
-  --color-sage-light: var(--sage-light);
-  --color-rule: var(--rule);
-  --font-display: var(--font-fraunces);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-success: var(--success);
+  --color-success-light: var(--success-light);
+  --color-danger: var(--danger);
+  --color-danger-light: var(--danger-light);
+  --color-border: var(--border);
+  --font-display: var(--font-poppins);
   --font-body: var(--font-inter);
 }
 
 body {
-  background: var(--paper);
+  background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
 }
 
 ::selection {
-  background: var(--gold-light);
+  background: var(--accent-light);
   color: var(--ink);
 }
